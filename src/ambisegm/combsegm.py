@@ -26,7 +26,7 @@ def remove_prefix_from_first(segmentation: list[str],
 
 def combine_segmentations(optional_boundary: str,
                           connecting_string: str,
-                          segmentations: Iterable[list[str]]) -> str:
+                          segmentations: Iterable[list[str]]) -> str | None:
   """Combine a set of possible segmentations to a
   generic segmentation with optional boundaries.
   :param segmentations: An iterable of segmentations,
@@ -40,7 +40,7 @@ def combine_segmentations(optional_boundary: str,
     filter(lambda segmentation: len(segmentation) > 0, segmentations)
   )
   if len(non_empty) == 0:
-    return ''
+    return None
   # Find the segmentation with the shortest first segment
   with_shortest_first_segment = min(
     non_empty,
@@ -60,6 +60,8 @@ def combine_segmentations(optional_boundary: str,
     connecting_string,
     without_prefix
   )
+  if tail is None:
+    return shortest_first_segment
   return shortest_first_segment + \
     optional_boundary + tail
 
