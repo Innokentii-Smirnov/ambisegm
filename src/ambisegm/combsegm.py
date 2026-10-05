@@ -92,6 +92,21 @@ if __name__ == '__main__':
     [
       ['te-eḫ-tu-li-el-li-e'],
       ['te-eḫ-tu', 'li-el-li-e']
+    ],
+    [
+      ['A', 'B', 'C-D'],
+      ['A-B', 'C', 'D'],
+      ['A', 'B-C', 'D']
+    ],
+    [
+      ['A', 'B-E', 'C-D'],
+      ['A-B-E', 'C', 'D'],
+      ['A', 'B-E-C', 'D']
+    ],
+    [
+      ['A', 'B-E', 'C-D-F'],
+      ['A-B-E', 'C', 'D', 'F'],
+      ['A', 'B-E-C', 'D-F']
     ]
   ]
   for segmentations in segmentation_lists:
