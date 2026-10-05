@@ -15,7 +15,10 @@ def remove_prefix_from_first(segmentation: list[str],
   if segmentation[0] == prefix:
     return tail
   else:
-    new_first = segmentation[0].removeprefix(prefix + connecting_string)
+    first_segment = segmentation[0]
+    pref_with_conn = prefix + connecting_string
+    assert first_segment.startswith(pref_with_conn)
+    new_first = first_segment.removeprefix(pref_with_conn)
     if len(new_first) == 0:
       return tail
     else:
