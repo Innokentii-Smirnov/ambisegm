@@ -62,3 +62,38 @@ def combine_segmentations(optional_boundary: str,
   )
   return shortest_first_segment + \
     optional_boundary + tail
+
+if __name__ == '__main__':
+  optional_boundary = '(-)'
+  connecting_string = '-'
+  segmentation_lists = [
+    [
+      ['ḫu-u-e-ni', 'e-waa-ni-ib-bi'],
+      ['ḫu-u-e-ni-e-waa', 'ni-ib-bi']
+    ],
+    [
+      ['ḫu-u-e-ni', 'e-waa-ni-ib-bi'],
+      ['ḫu-u-e-ni-e-waa', 'ni-ib-bi'],
+      ['ḫu-u-e-ni', 'e-waa', 'ni-ib-bi']
+    ],
+    [
+      ['ḫu-u-e-ni-e-waa-ni-ib-bi'],
+      ['ḫu-u-e-ni', 'e-waa-ni-ib-bi'],
+      ['ḫu-u-e-ni-e-waa', 'ni-ib-bi']
+    ],
+    [
+      ['ḫu-u-e-ni-e-waa-ni-ib-bi'],
+      ['ḫu-u-e-ni', 'e-waa-ni-ib-bi'],
+      ['ḫu-u-e-ni-e-waa', 'ni-ib-bi'],
+      ['ḫu-u-e-ni', 'e-waa', 'ni-ib-bi']
+    ],
+    [
+      ['te-eḫ-tu-li-el-li-e'],
+      ['te-eḫ-tu', 'li-el-li-e']
+    ]
+  ]
+  for segmentations in segmentation_lists:
+    generic_segmentation = combine_segmentations(
+      optional_boundary, connecting_string, segmentations
+    )
+    print(generic_segmentation)
